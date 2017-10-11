@@ -1,0 +1,20 @@
+<% provide(:title, "Log in") %>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="text-center">
+        <h1>Log in</h1>
+    </div>
+        <%= form_for(:session, url: login_path) do |f| %>
+            <p>
+            <%= f.text_field :login, class: 'form-control', placeholder: 'Login' %>
+            </p>
+            <p>
+            <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+            </p>
+            <p>
+            <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block" %>
+            </p>
+        <% end %>
+  </div>
+</div>
