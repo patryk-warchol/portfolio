@@ -4,8 +4,10 @@ namespace :setup do
   task :all => :environment do 
     Rake::Task["setup:remove:admin"].invoke
     Rake::Task["setup:remove:links"].invoke
+    Rake::Task["setup:remove:settings"].invoke
     Rake::Task["setup:create:admin"].invoke
     Rake::Task["setup:create:links"].invoke
+    Rake::Task["setup:create:settings"].invoke
   end
 
   namespace :create do
@@ -28,6 +30,7 @@ namespace :setup do
         link: "",
         footer_visible: true
       )
+      puts "Created default link for Github"
       linkedin = Link.create(
         name: "LinkedIn",
         fa_icon_name: "fa-linkedin-square",
@@ -36,6 +39,7 @@ namespace :setup do
         link: "",
         footer_visible: true
       )
+      puts "Created default link for LinkedIn"
       contact = Link.create(
         name: "Contact me",
         fa_icon_name: "fa-envelope-square",
@@ -44,6 +48,20 @@ namespace :setup do
         link: "",
         footer_visible: true
       )
+      puts "Created default link for ContactMe"
+    end
+
+    # setup:create:settings
+    desc "Create default settings"
+    task :settings => :environment do
+      Setting.create(name: "firstname", value: 'Prénom')
+      puts "Created default firstname"
+      Setting.create(name: "lastname", value: 'Nom')
+      puts "Created default lastname"
+      Setting.create(name: "title", value: 'Titre')
+      puts "Created default title"
+      Setting.create(name: "footer_apropos", value: 'A propos de moi')
+      puts "Created default footer_apropos"
     end
       
   end
@@ -62,6 +80,13 @@ namespace :setup do
     task :links => :environment do
       Link.delete_all
       puts "Removed links"
+    end
+
+    # setup:remove:settings
+    desc "Remove settings"
+    task :settings => :environment do
+      Setting.delete_all
+      puts "Removed settings"
     end
 
   end

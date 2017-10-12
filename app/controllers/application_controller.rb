@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_action do |controller|
+    @settings = Setting.all
     @links = Link.all
   end
 

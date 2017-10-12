@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012112437) do
+ActiveRecord::Schema.define(version: 20171012162447) do
 
   create_table "admins", force: :cascade do |t|
     t.string "login"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20171012112437) do
     t.integer "technology_id"
     t.index ["project_id"], name: "index_projects_technologies_on_project_id"
     t.index ["technology_id"], name: "index_projects_technologies_on_technology_id"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "name"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tech_categories", force: :cascade do |t|

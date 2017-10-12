@@ -1,3 +1,30 @@
+<% if logged_in? %>
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <div class="navbar-brand">
+          Admin
+        </div>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <% if logged_in? %>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Projects", { controller: 'projects', action: 'index' } %></li>
+            <li><%= link_to "Technologies", "#" %></li>
+            <li><%= link_to "Links", "#" %></li>
+          </ul>
+        <% end %>
+        <div class="navbar-form navbar-right">
+          <% if logged_in? %>
+            <%= link_to "Log out", { controller: 'sessions', action: 'destroy' }, method: :delete, class: "btn btn-danger" %>  
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+<% end %>
+
+
 <nav class="navbar navbar-inverse navbar-static-top">
   <div class="container">
       <div class="navbar-header">
@@ -7,19 +34,15 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <%= link_to "Patryk Warchol", { controller: 'statics', action: 'home'}, class: 'navbar-brand', id: 'logo' %>
+          <%= link_to @settings.firstname + " " + @settings.lastname + " - " +  @settings.title, { controller: 'statics', action: 'home'}, class: 'navbar-brand', id: 'logo' %>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
-          <% if logged_in? %>
-              <ul class="nav navbar-nav">
-                <li><%= link_to "Example", "#" %></li>
+              <ul class="nav navbar-nav navbar-right">
+                <li></i><%= link_to "Accueil", "#" %></li>
+                <li><%= link_to "Portfolio", '#' %></li>
+                <li><%= link_to "Compétences", "#" %></li>
+                <li><%= link_to "Contact", "#" %></li>
               </ul>
-          <% end %>
-          <div class="navbar-form navbar-right">
-          <% if logged_in? %>
-            <%= link_to "Log out", { controller: 'sessions', action: 'destroy' }, method: :delete, class: "btn btn-success" %>  
-          <% end %>
-          </div>
       </div><!--/.navbar-collapse -->
   </div>
 </nav>

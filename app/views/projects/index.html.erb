@@ -1,0 +1,31 @@
+<h1>Projects</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>My Role</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.image %></td>
+        <td><%= project.my_role %></td>
+        <td><%= project.desc %></td>
+        <td><%= link_to 'Show', { controller: 'projects', action: 'show', id: project.id } %></td>
+        <td><%= link_to 'Edit', { controller: 'projects', action: 'edit', id: project.id } %></td>
+        <td><%= link_to 'Destroy', { controller: 'projects', action: 'destroy', id: project.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', { controller: 'projects', action: 'new' } %>

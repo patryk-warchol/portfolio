@@ -3,7 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-sm-12">
-          A propos de moi
+          <p>
+            <%= @settings.footer_apropos %>
+          </p>
         </div>
         <div class="col-md-6 col-sm-12">
           <div class="pull-right">
@@ -11,11 +13,7 @@
               <% @links.each do |link| %>
                 <%= puts_footer_icon(link) %>
               <% end %>
-              
-
-
             </div>
-
           </div>
         </div>
       </div>
