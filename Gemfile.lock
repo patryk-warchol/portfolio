@@ -64,6 +64,8 @@ GEM
     erubi (1.6.1)
     execjs (2.7.0)
     ffi (1.9.18)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -211,6 +213,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 1.0.0)
   byebug (= 9.0.6)
   coffee-rails (= 4.2.2)
+  font-awesome-sass
   guard (= 2.14.1)
   guard-minitest (= 2.4.6)
   jbuilder (= 2.7.0)

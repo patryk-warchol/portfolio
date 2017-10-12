@@ -1,0 +1,24 @@
+
+  <footer class="navbar-fixed-bottom portfolio-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          A propos de moi
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="pull-right">
+            <div class="footer-links">
+              <% @links.each do |link| %>
+                <%= puts_footer_icon(link) %>
+              <% end %>
+              
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+

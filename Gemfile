@@ -13,6 +13,7 @@ gem 'pg',             '0.18.4'
 
 gem 'bootstrap-sass',          '3.3.7'
 gem 'autoprefixer-rails'
+gem 'font-awesome-sass'
 
 gem 'will_paginate',           '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
