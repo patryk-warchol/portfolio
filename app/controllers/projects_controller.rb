@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :start_project, :stop_project] 
+  before_action :set_project, only: [:show, :edit, :update, :destroy] 
   
   before_action do |controller|
     if !logged_in?

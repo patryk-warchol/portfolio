@@ -1,0 +1,36 @@
+<h1>New Technology</h1>
+
+<%= form_for @technology, url: url_for( controller: 'technologies', action: 'create' ) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :logo %>
+    <%= form.text_field :logo, id: :project_logo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :xp_pro %>
+    <%= form.text_field :xp_pro, id: :project_xp_pro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :xp_perso %>
+    <%= form.text_field :xp_perso, id: :project_xp_perso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tech_category_id %>
+    <%= form.collection_select :tech_category_id, TechCategory.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', { controller: 'technologies', action: 'index' } %>

@@ -1,5 +1,29 @@
 <h1>New Project</h1>
 
-<%= render 'form', project: @project %>
+<%= form_for @project, url: { controller:'projects', action: 'create' } do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :project_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :my_role %>
+    <%= form.text_field :my_role, id: :project_my_role %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_area :desc, id: :project_desc %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', { controller: 'projects', action: 'index' } %>

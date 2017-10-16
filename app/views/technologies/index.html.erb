@@ -1,0 +1,33 @@
+<h1>Technologies</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Logo</th>
+      <th>Xp pro</th>
+      <th>Xp perso</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @technologies.each do |technology| %>
+      <tr>
+        <td><%= technology.name %></td>
+        <td><%= technology.logo %></td>
+        <td><%= technology.xp_pro %></td>
+        <td><%= technology.xp_perso %></td>
+        <td><%= technology.tech_category_id %></td>
+        <td><%= link_to 'Show', { controller: 'technologies', action: 'show', id: technology.id } %></td>
+        <td><%= link_to 'Edit', { controller: 'technologies', action: 'edit', id: technology.id } %></td>
+        <td><%= link_to 'Destroy', { controller: 'technologies', action: 'destroy', id: technology.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Technology', { controller: 'technologies', action: 'new' } %>

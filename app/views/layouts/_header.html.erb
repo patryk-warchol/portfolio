@@ -10,7 +10,7 @@
         <% if logged_in? %>
           <ul class="nav navbar-nav">
             <li><%= link_to "Projects", { controller: 'projects', action: 'index' } %></li>
-            <li><%= link_to "Technologies", "#" %></li>
+            <li><%= link_to "Technologies", { controller: 'technologies', action: 'index' } %></li>
             <li><%= link_to "Links", "#" %></li>
           </ul>
         <% end %>
