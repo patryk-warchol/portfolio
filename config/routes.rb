@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
 
+  get     '/links',                to: 'links#index'
+  get     '/links/new',            to: 'links#new'
+  get     '/links/:id',            to: 'links#show',          constraints: { id: /[0-9]+/ }
+  post    '/links',                to: 'links#create'
+  get     '/links/:id/edit',       to: 'links#edit'
+  patch   '/links/:id',            to: 'links#update',        constraints: { id: /[0-9]+/ }
+  delete  '/links/:id',            to: 'links#destroy',       constraints: { id: /[0-9]+/ }
+
   get     '/technologies',                to: 'technologies#index'
   get     '/technologies/new',            to: 'technologies#new'
   get     '/technologies/:id',            to: 'technologies#show',          constraints: { id: /[0-9]+/ }

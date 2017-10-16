@@ -1,6 +1,7 @@
 <h1>Editing Project</h1>
 
 <%= form_for @project, url: { controller:'projects', action: 'update' } do |form| %>
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :project_name %>

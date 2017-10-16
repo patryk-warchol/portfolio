@@ -1,0 +1,40 @@
+<h1>New Link</h1>
+
+<%= form_for @link, url: { controller:'links', action: 'create' } do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :link_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fa_icon_name %>
+    <%= form.text_field :fa_icon_name, id: :link_fa_icon_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_field :link, id: :link_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color, id: :link_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.text_field :size, id: :link_size, value: "3" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :footer_visible %>
+
+    <%= form.select :footer_visible, options_for_select([['Yes', true], ['No', false]], selected: @link.footer_visible) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', { controller: 'links', action: 'index' } %>

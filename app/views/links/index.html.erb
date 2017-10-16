@@ -1,0 +1,35 @@
+<h1>Links</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Fa icon</th>
+      <th>Link</th>
+      <th>Color</th>
+      <th>Size</th>
+      <th>Visible?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= link.name %></td>
+        <td><%= link.fa_icon_name %></td>
+        <td><%= link.link%></td>
+        <td><%= link.color %></td>
+        <td><%= link.size %></td>
+        <td><%= link.footer_visible %></td>
+        <td><%= link_to 'Show', { controller: 'links', action: 'show', id: link.id } %></td>
+        <td><%= link_to 'Edit', { controller: 'links', action: 'edit', id: link.id } %></td>
+        <td><%= link_to 'Destroy', { controller: 'links', action: 'destroy', id: link.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Link', { controller: 'links', action: 'new' } %>
