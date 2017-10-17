@@ -1,11 +1,10 @@
-
+<div class="visible-md visible-lg">
   <footer class="navbar-fixed-bottom portfolio-footer">
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-sm-12">
-          <p>
-            <%= @settings.footer_apropos %>
-          </p>
+          <p>A propos</p>
+          <p><%= @settings.footer_apropos %></p>
         </div>
         <div class="col-md-6 col-sm-12">
           <div class="pull-right">
@@ -19,4 +18,26 @@
       </div>
     </div>
   </footer>
+</div>
 
+<div class="visible-xs visible-sm">
+    <footer class="navbar-bottom portfolio-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <p>A propos</p>
+            <p><%= @settings.footer_apropos %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <div class="footer-links">
+              <% @links.each do |link| %>
+                <%= puts_footer_icon(link) %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>

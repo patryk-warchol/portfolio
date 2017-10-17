@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project_technologies = @project.technologies
   end
 
   def new

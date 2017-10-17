@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get     '/settings',                to: 'settings#index'
+  get     '/settings/new',            to: 'settings#new'
+  get     '/settings/:id',            to: 'settings#show',          constraints: { id: /[0-9]+/ }
+  post    '/settings',                to: 'settings#create'
+  get     '/settings/:id/edit',       to: 'settings#edit'
+  patch   '/settings/:id',            to: 'settings#update',        constraints: { id: /[0-9]+/ }
+  delete  '/settings/:id',            to: 'settings#destroy',       constraints: { id: /[0-9]+/ }
 
   get     '/links',                to: 'links#index'
   get     '/links/new',            to: 'links#new'
@@ -32,7 +39,7 @@ Rails.application.routes.draw do
 
   get '/contact', to: 'statics#contact'
 
-  get 'admins/home'
+  get '/admins', to: 'admins#home'
 
   get     '/login',                   to: 'sessions#new'
   post    '/login',                   to: 'sessions#create'

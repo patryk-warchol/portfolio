@@ -1,0 +1,20 @@
+<h1>Editing Setting</h1>
+
+<%= form_for @setting, url: { controller:'settings', action: 'update' } do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :setting_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :setting_value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', { controller: 'settings', action: 'show', id: @setting.id } %> |
+<%= link_to 'Back', { controller: 'settings', action: 'index' } %>

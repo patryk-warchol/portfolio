@@ -1,4 +1,65 @@
-<h1>Admins#home</h1>
-<p>Find me in app/views/admins/home.html.erb</p>
+<div class="admin-panel">
 
-<%= link_to "Log out", { controller: "sessions", action: "destroy" }, method: :delete %>
+  <div class="row">
+    <%= link_to controller: 'projects', action: 'index' do %>
+      <div class="col-md-4 text-center">
+        <div class="panel panel-default">
+          <div class="panel-body admin-card">
+            <div class="col-md-4">
+              <i class="fa fa-th fa-5x" aria-hidden="true" style="color: #92908C;"></i>
+            </div>
+            <div class="col-md-8">
+              <p>Manage your projects</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to controller: 'technologies', action: 'index' do %>
+      <div class="col-md-4 text-center">
+        <div class="panel panel-default">
+          <div class="panel-body admin-card">
+            <div class="col-md-4">
+              <i class="fa fa-book fa-5x" aria-hidden="true" style="color: #92908C;"></i>
+            </div>
+            <div class="col-md-8">
+              <p>Manage your skills</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to controller: 'links', action: 'index' do %>
+      <div class="col-md-4 text-center">
+        <div class="panel panel-default">
+          <div class="panel-body admin-card">
+            <div class="col-md-4">
+              <i class="fa fa-external-link fa-5x" aria-hidden="true" style="color: #92908C;"></i>
+            </div>
+            <div class="col-md-8">
+              <p>Manage your footer links</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= link_to controller: 'settings', action: 'index' do %>
+      <div class="col-md-4 text-center">
+        <div class="panel panel-default">
+          <div class="panel-body admin-card">
+            <div class="col-md-4">
+              <i class="fa fa-cog fa-5x" aria-hidden="true" style="color: #92908C;"></i>
+            </div>
+            <div class="col-md-8">
+              <p>Settings</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+</div>
