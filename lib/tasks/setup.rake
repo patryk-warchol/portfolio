@@ -5,9 +5,11 @@ namespace :setup do
     Rake::Task["setup:remove:admin"].invoke
     Rake::Task["setup:remove:links"].invoke
     Rake::Task["setup:remove:settings"].invoke
+    Rake::Task["setup:remove:tech_categories"].invoke
     Rake::Task["setup:create:admin"].invoke
     Rake::Task["setup:create:links"].invoke
     Rake::Task["setup:create:settings"].invoke
+    Rake::Task["setup:create:tech_categories"].invoke
   end
 
   namespace :create do
@@ -63,6 +65,16 @@ namespace :setup do
       Setting.create(name: "footer_apropos", value: 'A propos de moi')
       puts "Created default footer_apropos"
     end
+
+    # setup:create:tech_categories
+    desc "Create categories for technologies"
+    task :tech_categories => :environment do
+      TechCategory.create(name: "Langage")
+      TechCategory.create(name: "Framework")
+      TechCategory.create(name: "Technologie")
+      TechCategory.create(name: "OS")
+      TechCategory.create(name: "Editeur")
+    end
       
   end
 
@@ -87,6 +99,13 @@ namespace :setup do
     task :settings => :environment do
       Setting.delete_all
       puts "Removed settings"
+    end
+
+    # setup:remove:tech_categories
+    desc "Remove categories for technologies"
+    task :tech_categories => :environment do
+      TechCategory.delete_all
+      puts "Removed tech_categories"
     end
 
   end

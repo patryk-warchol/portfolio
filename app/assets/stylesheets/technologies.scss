@@ -1,3 +1,38 @@
 // Place all the styles related to the Technologies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.technology-card {
+  color: #92908C;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  &:hover {
+    color: #92908C;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.technology-card-name {
+  font-size: 1.75em;
+  padding-top: 2%;
+}
+
+.technology-card-xp-pro {
+  font-size: 1.5em;
+}
+
+.technology-card-xp-perso {
+  
+}
+
+.technology-card-tech-category {
+
+}
+
+.technology-card-projects {
+  color: green;
+}
+
+.technology-card-logo {
+  max-height: 100%;
+  max-width: 100%;
+}

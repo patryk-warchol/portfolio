@@ -7,6 +7,7 @@ class StaticsController < ApplicationController
   end
 
   def competences
+    @technologies = Technology.all
   end
 
   def contact
