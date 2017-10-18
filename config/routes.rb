@@ -34,11 +34,9 @@ Rails.application.routes.draw do
 
 
   get '/portfolio', to: 'statics#portfolio'
-
   get '/competences', to: 'statics#competences'
-
   get '/contact', to: 'statics#contact'
-
+  
   get '/admins', to: 'admins#home'
 
   get     '/login',                   to: 'sessions#new'

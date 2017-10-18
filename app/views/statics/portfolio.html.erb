@@ -1,2 +1,31 @@
-<h1>Statics#portfolio</h1>
-<p>Find me in app/views/statics/portfolio.html.erb</p>
+<div class="text-center">
+  <h1>Mon Portfolio</h1>
+</div>
+
+<% @projects.each do |project| %>
+  <%= link_to controller: 'projects', action: 'show', id: project.id do %>
+    <div class="col-md-6 text-center">
+      <div class="panel panel-default">
+        <div class="panel-body project-card">
+          <div class="col-md-12">
+            <%= image_tag(project.image, class: "project-card-image") %>
+          </div>
+          <div class="col-md-12 project-card-name">
+            <%= project.name %>
+          </div>
+          <div class="col-md-12 project-card-desc">
+            <%= project.desc %>
+          </div>
+          <div class="col-md-12 project-card-technologies">
+            <% project.technologies.each do |tech| %>
+              <span class="label label-success"><%= tech.name %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+
+      

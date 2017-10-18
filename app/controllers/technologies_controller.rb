@@ -3,8 +3,10 @@ class TechnologiesController < ApplicationController
   before_action :set_technology, only: [:show, :edit, :update, :destroy] 
   
   before_action do |controller|
-    if !logged_in?
-      redirect_to controller: 'sessions', action: 'new'
+    if controller.action_name != "show"
+      if !logged_in?
+        redirect_to controller: 'sessions', action: 'new'
+      end
     end
   end
 

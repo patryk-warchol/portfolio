@@ -3,6 +3,7 @@ class StaticsController < ApplicationController
   end
 
   def portfolio
+    @projects = Project.all
   end
 
   def competences

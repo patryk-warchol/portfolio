@@ -11,10 +11,10 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Accueil", "#" %></li>
-          <li><%= link_to "Portfolio", '#' %></li>
-          <li><%= link_to "Compétences", "#" %></li>
-          <li><%= link_to "Contact", "#" %></li>
+          <li><%= link_to "Accueil", { controller: 'statics', action: 'home' } %></li>
+          <li><%= link_to "Portfolio", { controller: 'statics', action: 'portfolio' } %></li>
+          <li><%= link_to "Compétences", { controller: 'statics', action: 'competences' } %></li>
+          <li><%= link_to "Contact", { controller: 'statics', action: 'contact' } %></li>
         <% if logged_in? %>
           <div class="navbar-form navbar-right">
             <li><%= link_to "Log out", { controller: 'sessions', action: 'destroy' }, method: :delete, class: "btn btn-danger" %></li>
