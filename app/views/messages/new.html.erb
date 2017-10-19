@@ -1,0 +1,37 @@
+<div class="row">
+  <% if @message.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <%  end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <%= form_for @message, url: { controller:'messages', action: 'create' }, html: { class: 'form-horizontal' } do |form| %>
+
+    <div class="form-group">
+      <%= form.label :from, "Votre email", class: "col-md-4 control-label" %>
+      <div class="col-md-6">
+        <%= form.email_field :from, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :content, "Votre message", class: "col-md-4 control-label" %>
+      <div class="col-md-6">
+        <%= form.text_area :content, rows: "10", class: "form-control text-area-only-vertical" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-6 col-md-offset-4">
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </div>
+    </div>
+
+  <% end %>
+</div>
