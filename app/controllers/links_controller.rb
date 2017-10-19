@@ -2,11 +2,7 @@ class LinksController < ApplicationController
   
   before_action :set_link, only: [:show, :edit, :update, :destroy] 
   
-  before_action do |controller|
-    if !logged_in?
-      redirect_to controller: 'sessions', action: 'new'
-    end
-  end
+  before_action :verify_access
 
   def index
     @links = Link.all
@@ -58,6 +54,12 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:name, :fa_icon_name, :link, :color, :size, :footer_visible)
+  end
+
+  def verify_access
+    if !logged_in?
+      redirect_to controller: 'sessions', action: 'new'
+    end
   end
 
 end

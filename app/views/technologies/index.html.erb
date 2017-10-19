@@ -19,7 +19,7 @@
         <td><%= technology.logo %></td>
         <td><%= technology.xp_pro %></td>
         <td><%= technology.xp_perso %></td>
-        <td><%= technology.tech_category_id %></td>
+        <td><%= technology.category %></td>
         <td><%= link_to 'Show', { controller: 'technologies', action: 'show', id: technology.id } %></td>
         <td><%= link_to 'Edit', { controller: 'technologies', action: 'edit', id: technology.id } %></td>
         <td><%= link_to 'Destroy', { controller: 'technologies', action: 'destroy', id: technology.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>

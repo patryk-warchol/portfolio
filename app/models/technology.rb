@@ -7,7 +7,15 @@ class Technology < ApplicationRecord
   end
 
   def category
-    TechCategory.find(self.tech_category_id)
+    TechCategory.find(self.tech_category_id).name
+  end
+
+  def self.langages
+    Technology.where(tech_category_id: TechCategory.find_by(name: "Langage").id.to_i)
+  end
+
+  def self.frameworks
+    Technology.where(tech_category_id: TechCategory.find_by(name: "Framework").id.to_i)
   end
 
 end

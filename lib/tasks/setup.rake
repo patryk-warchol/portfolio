@@ -64,6 +64,8 @@ namespace :setup do
       puts "Created default title"
       Setting.create(name: "footer_apropos", value: 'A propos de moi')
       puts "Created default footer_apropos"
+      Setting.create(name: "avatar", value: 'default_avatar')
+      puts "Created default avatar"
     end
 
     # setup:create:tech_categories

@@ -2,13 +2,7 @@ class TechnologiesController < ApplicationController
   
   before_action :set_technology, only: [:show, :edit, :update, :destroy] 
   
-  before_action do |controller|
-    if controller.action_name != "show"
-      if !logged_in?
-        redirect_to controller: 'sessions', action: 'new'
-      end
-    end
-  end
+  before_action :verify_access, only: [:index, :new, :edit, :create, :update, :destroy]
 
   def index
     @technologies = Technology.all
@@ -61,4 +55,11 @@ class TechnologiesController < ApplicationController
   def technology_params
     params.require(:technology).permit(:name, :logo, :xp_pro, :xp_perso, :tech_category_id)
   end
+
+  def verify_access
+    if !logged_in?
+      redirect_to controller: 'sessions', action: 'new'
+    end
+  end
+
 end

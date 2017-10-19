@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  
   def new
     if logged_in?
       redirect_to controller: 'admins', action: 'home'

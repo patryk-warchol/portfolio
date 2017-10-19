@@ -1,2 +1,95 @@
-<h1>Statics#home</h1>
-<p>Find me in app/views/statics/home.html.erb</p>
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag(@settings.avatar, class: "avatar-image") %>
+  </div>
+  <div class="col-md-9">
+      <div class="text-center">
+        <h1>A propos de moi</h1>
+        <h4><%= @settings.footer_apropos %></h4>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="text-center">
+    <h1>Mes derniers projets</h1>
+  </div>
+  <% @projects.each do |project| %>
+    <%= link_to controller: 'projects', action: 'show', id: project.id do %>
+      <div class="col-md-4 text-center">
+        <div class="panel panel-default">
+          <div class="panel-body project-card">
+            <div class="col-md-12">
+              <%= image_tag(project.image, class: "project-card-image") %>
+            </div>
+            <div class="col-md-12 project-card-name">
+              <%= project.name %>
+            </div>
+            <div class="col-md-12 project-card-desc">
+              <%= project.desc %>
+            </div>
+            <div class="col-md-12 project-card-technologies">
+              <% project.technologies.each do |tech| %>
+                <span class="label label-success"><%= tech.name %></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="text-center">
+    <h1>Mes langages de prédilection</h1>
+  </div>
+  <% @langages.each do |technology| %>
+    <%= link_to controller: 'technologies', action: 'show', id: technology.id do %>
+      <div class="col-md-4 text-center">
+        <div class="panel panel-default">
+          <div class="panel-body technology-card">
+            <div class="col-md-4">
+              <%= image_tag(technology.logo.to_s, class: "technology-card-logo") %>
+            </div>
+            <div class="col-md-8">
+              <div class="col-md-12 technology-card-name">
+                <%= technology.name %>
+              </div>
+              <div class="col-md-12 technology-card-xp-pro">
+                <span class="label label-success"><%= pluralize(technology.xp_pro, "an") %> d'expérience</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="row">
+    <div class="text-center">
+      <h1>Mes frameworks preféres</h1>
+    </div>
+    <% @frameworks.each do |technology| %>
+      <%= link_to controller: 'technologies', action: 'show', id: technology.id do %>
+        <div class="col-md-4 text-center">
+          <div class="panel panel-default">
+            <div class="panel-body technology-card">
+              <div class="col-md-4">
+                <%= image_tag(technology.logo.to_s, class: "technology-card-logo") %>
+              </div>
+              <div class="col-md-8">
+                <div class="col-md-12 technology-card-name">
+                  <%= technology.name %>
+                </div>
+                <div class="col-md-12 technology-card-xp-pro">
+                  <span class="label label-success"><%= pluralize(technology.xp_pro, "an") %> d'expérience</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>

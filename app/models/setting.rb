@@ -16,4 +16,8 @@ class Setting < ApplicationRecord
     Setting.find_by(name: "footer_apropos").value
   end
 
+  def self.avatar
+    Setting.find_by(name: "avatar").value
+  end
+
 end

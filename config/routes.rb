@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get     '/messages',                to: 'messages#index'
+  get     '/messages/new',            to: 'messages#new'
+  get     '/messages/:id',            to: 'messages#show',          constraints: { id: /[0-9]+/ }
+  post    '/messages',                to: 'messages#create'
+  delete  '/messages/:id',            to: 'messages#destroy',       constraints: { id: /[0-9]+/ }
+
   get     '/settings',                to: 'settings#index'
   get     '/settings/new',            to: 'settings#new'
   get     '/settings/:id',            to: 'settings#show',          constraints: { id: /[0-9]+/ }
@@ -35,7 +41,7 @@ Rails.application.routes.draw do
 
   get '/portfolio', to: 'statics#portfolio'
   get '/competences', to: 'statics#competences'
-  get '/contact', to: 'statics#contact'
+  get '/contact', to: 'messages#new'
   
   get '/admins', to: 'admins#home'
 

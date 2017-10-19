@@ -60,7 +60,7 @@
         </div>
       </div>
     <% end %>
-    <%= link_to '#' do %>
+    <%= link_to controller: 'messages', action: 'index' do %>
       <div class="col-md-4 text-center">
         <div class="panel panel-default">
           <div class="panel-body admin-card">
@@ -68,7 +68,14 @@
               <i class="fa fa-envelope fa-5x" aria-hidden="true" style="color: #92908C;"></i>
             </div>
             <div class="col-md-8">
-              <p>Messages</p>
+              <div class="col-md-12">
+                <p>Messages</p>
+              </div>
+              <% if @message_count.to_i > 0 %>
+                <div class="col-md-12">
+                  <h4><span class="label label-success"><%= pluralize(@message_count, "message")%></span></h4>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

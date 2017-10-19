@@ -2,11 +2,7 @@ class SettingsController < ApplicationController
 
   before_action :set_setting, only: [:show, :edit, :update, :destroy] 
   
-  before_action do |controller|
-    if !logged_in?
-      redirect_to controller: 'sessions', action: 'new'
-    end
-  end
+  before_action :verify_access
 
   def index
     @settings = Setting.all
@@ -58,6 +54,12 @@ class SettingsController < ApplicationController
 
   def setting_params
     params.require(:setting).permit(:name, :value)
+  end
+
+  def verify_access
+    if !logged_in?
+      redirect_to controller: 'sessions', action: 'new'
+    end
   end
   
 end
