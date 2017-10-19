@@ -7,7 +7,7 @@ class StaticsController < ApplicationController
   end
 
   def competences
-    @technologies = Technology.all
+    @technologies = Technology.all.order(:xp_pro).reverse
   end
 
   def contact
