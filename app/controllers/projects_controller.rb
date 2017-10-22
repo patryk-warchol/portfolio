@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
   end
 
   def add_technology_new
-    @technologies = Technology.available(@project.id)
+    @technologies = Technology.order(:name).available(@project.id)
   end
 
   def add_technology_create

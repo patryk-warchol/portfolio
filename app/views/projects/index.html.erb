@@ -21,8 +21,8 @@
         <td><%= project.desc %></td>
         <td>
           <p>
-          <% project.technologies.each do |technology| %>
-            <span class="label label-success"><%= technology.name %><%= link_to ' X', { controller: 'projects', action: 'add_technology_delete', id: project.id, tech_id: technology.id}, method: :delete %></span>
+          <% project.technologies.order(:name).each do |technology| %>
+            <h5><span class="label label-success"><%= technology.name %><span class="label-remove"><%= link_to ' X', { controller: 'projects', action: 'add_technology_delete', id: project.id, tech_id: technology.id}, method: :delete %></span></span></h5>
           <% end %>
           </p>
           <% if Technology.available(project.id).count > 0 %>
