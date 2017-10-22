@@ -18,4 +18,20 @@ class Technology < ApplicationRecord
     Technology.where(tech_category_id: TechCategory.find_by(name: "Framework").id.to_i)
   end
 
+  def self.available(project_id)
+    $techs = []
+    Technology.all.each do |technology|
+      $included = false
+      Project.find(project_id).technologies.each do |project_technology|
+        if technology.id == project_technology.id
+          $included = true
+        end
+      end
+      if $included == false
+        $techs << technology
+      end
+    end
+    return $techs
+  end
+
 end

@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   patch   '/technologies/:id',            to: 'technologies#update',        constraints: { id: /[0-9]+/ }
   delete  '/technologies/:id',            to: 'technologies#destroy',       constraints: { id: /[0-9]+/ }
 
+  get '/projects/add_technology/:id',     to: 'projects#add_technology_new', constraints: { id: /[0-9]+/ }
+  post '/projects/add_technology',        to: 'projects#add_technology_create'
+  delete '/projects/add_technology/:id',  to: 'projects#add_technology_delete', constraints: { id: /[0-9]+/ }
+
   get     '/projects',                to: 'projects#index'
   get     '/projects/new',            to: 'projects#new'
   get     '/projects/:id',            to: 'projects#show',          constraints: { id: /[0-9]+/ }
@@ -39,6 +43,7 @@ Rails.application.routes.draw do
   delete  '/projects/:id',            to: 'projects#destroy',       constraints: { id: /[0-9]+/ }
 
 
+  get '/', to: 'statics#home'
   get '/portfolio', to: 'statics#portfolio'
   get '/competences', to: 'statics#competences'
   get '/contact', to: 'messages#new'
@@ -49,7 +54,6 @@ Rails.application.routes.draw do
   post    '/login',                   to: 'sessions#create'
   delete  '/logout',                  to: 'sessions#destroy'
 
-  get '/', to: 'statics#home'
   root 'statics#home'
 
 end

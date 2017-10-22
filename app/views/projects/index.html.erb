@@ -7,6 +7,7 @@
       <th>Image</th>
       <th>My Role</th>
       <th>Description</th>
+      <th>Technologies</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,16 @@
         <td><%= project.image %></td>
         <td><%= project.my_role %></td>
         <td><%= project.desc %></td>
+        <td>
+          <p>
+          <% project.technologies.each do |technology| %>
+            <span class="label label-success"><%= technology.name %><%= link_to ' X', { controller: 'projects', action: 'add_technology_delete', id: project.id, tech_id: technology.id}, method: :delete %></span>
+          <% end %>
+          </p>
+          <% if Technology.available(project.id).count > 0 %>
+            <span><%= link_to "Add", { controller: 'projects', action: 'add_technology_new', id: project.id } %></span>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', { controller: 'projects', action: 'show', id: project.id } %></td>
         <td><%= link_to 'Edit', { controller: 'projects', action: 'edit', id: project.id } %></td>
         <td><%= link_to 'Destroy', { controller: 'projects', action: 'destroy', id: project.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>

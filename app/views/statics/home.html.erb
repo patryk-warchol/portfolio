@@ -4,7 +4,10 @@
   </div>
   <div class="col-md-9">
       <div class="text-center">
-        <h1>A propos de moi</h1>
+        <div class="name-title">
+          <h1><%= @settings.firstname + " " + @settings.lastname + " - " +  @settings.title %></h1>
+        </div>
+        <h2>A propos de moi</h2>
         <h4><%= @settings.footer_apropos %></h4>
       </div>
   </div>

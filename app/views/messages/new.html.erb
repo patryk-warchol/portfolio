@@ -10,6 +10,10 @@
   <% end %>
 </div>
 
+<div class="text-center">
+  <h1>Formulaire de contact</h1>
+</div>
+
 <div class="row">
   <%= form_for @message, url: { controller:'messages', action: 'create' }, html: { class: 'form-horizontal' } do |form| %>
 

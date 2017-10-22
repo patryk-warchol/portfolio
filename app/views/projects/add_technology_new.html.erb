@@ -1,0 +1,10 @@
+<h1>Add Technology to <%= @project.name %></h1>
+
+<% if @technologies.count > 0 %>
+  <%= form_tag(controller: "projects", action: "add_technology_create", method: "post", id: @project.id) do %>
+    <%= collection_select :technology, :id,  @technologies, :id, :name %>
+    <%= submit_tag "Confirm" %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Back', { controller: 'projects', action: 'index' } %>

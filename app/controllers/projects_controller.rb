@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
   
-  before_action :set_project, only: [:show, :edit, :update, :destroy] 
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :add_technology_new, :add_technology_create] 
 
-  before_action :verify_access, only: [:index, :new, :edit, :create, :update, :destroy]
+  before_action :verify_access, only: [:index, :new, :edit, :create, :update, :destroy, :add_technology_new, :add_technology_create]
 
   def index
     @projects = Project.all
@@ -46,9 +46,25 @@ class ProjectsController < ApplicationController
     redirect_to controller: 'projects', action: 'index'
   end
 
+  def add_technology_new
+    @technologies = Technology.available(@project.id)
+  end
+
+  def add_technology_create
+    Project.find(params[:id]).add_technology(Technology.find(params[:technology][:id]))
+    flash[:success] = "Technology successfully added to project"
+    redirect_to controller: 'projects', action: 'index'
+  end
+
+  def add_technology_delete
+    Project.find(params[:id]).technologies.delete(Technology.find(params[:tech_id]))
+    redirect_to controller: 'projects', action: 'index'
+  end
+
 
   private
   
+
   def set_project
     @project = Project.find(params[:id])
   end
